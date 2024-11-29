@@ -17,7 +17,7 @@ SCRIPTING_FUNCTIONS =
 		{}, -- scripting button index 7
 		{}, -- scripting button index 8
 	},
-	
+
 	-- pseudo shift key (scripting button index 10) is down
 	{
 		{}, -- scripting button index 1

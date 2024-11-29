@@ -1289,7 +1289,7 @@ end
 
 
 -- **********************************
--- *** USER DEFINED ON LOAD TASKS ***
+-- *** USER DEFINED ON EVENT TASKS ***
 -- **********************************
 
 function userDefinedOnLoadTasks()

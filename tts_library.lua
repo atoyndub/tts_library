@@ -1126,6 +1126,8 @@ end
 -- array of named tile guids by player color example:
 -- PLAYER_PLAY_TILE_GUIDS = {Green = '123456', Red = '234567', White = '345678', Blue = '456789'}
 
+-- *** POPULATE BELOW ***
+
 BOARD_HEX_GUIDS =
 {
 	{'5384ef','457828','914958','420c11','8afabd','7ed8ce','beebcc','639538','ef5d05','f603aa','f83c62','277c25','4a26ce'},
@@ -1218,7 +1220,7 @@ function userInitInfiniteBags()
 		-- single infinite bag syntax example
 		-- {
 			-- guid = '123456',
-			--	tag = 'EXAMPLE'} -- tag is the tag that will be assigned to this bag and any/all of its spawn
+			-- tag = 'EXAMPLE'} -- tag is the tag that will be assigned to this bag and any/all of its spawn
 		-- }
 	
 		-- *** POPULATE BELOW ***
@@ -1335,11 +1337,12 @@ function userInitBoardSpaces()
 	-- {tileGUID = '123456', zoneGUID = '654321', name = 'mySpecialSpace', associatedTags = {'SPECIAL_CARDS_1', 'SPECIAL_CARDS_2'}, playerOwners = {'Green', 'Red'}},
 	
 	-- note: these will all be sorted by tileGUID asscending (on load)
-
-	-- *** POPULATE BELOW ***
 	
 	BOARD_SPACES =
 	{
+		
+		-- *** POPULATE BELOW ***
+		
 		-- board hexes
 		{tileGUID = BOARD_HEX_GUIDS[1][1], zoneGUID = 'd682e2', name = 'boardHex', associatedTags = {}, playerOwners = {}, hexCoordX = 1, hexCoordY = 1},
 		{tileGUID = BOARD_HEX_GUIDS[1][2], zoneGUID = 'a9a6af', name = 'boardHex', associatedTags = {}, playerOwners = {}, hexCoordX = 1, hexCoordY = 2},
@@ -1517,7 +1520,11 @@ function userInitScriptingFunctions()
 
 	-- *** POPULATE BELOW ***
 
-	-- commonly use prerequisites
+	-- commonly use prerequisites (to support shorter addScriptingFunction() calls)
+	-- examples:
+		-- local Card = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Card'}}}
+		-- local BoardHexBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'boardHex'}}}
+
 	local Infinite = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Infinite'}}}
 	local Figurine = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Figurine'}}}
 	local TileSet = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Tileset'}}}
@@ -1526,6 +1533,10 @@ function userInitScriptingFunctions()
 	local UIHidden = {functionName = 'meetsPrereqs_UIElementIsNotDisplayed', addedContext = {uiElementID = 'enlarged_tileset_image'}}
 
 	-- pseudo shift key up, scripting button index 1
+
+	-- example to assign the doStuffFunc() to scripting key one (no pseudoshift) when user hovers over a card within a 'boardHex' boardspace:
+		-- addScriptingFunction(1, 1, 'doStuffFunc', 'does stuff', {Tile, BoardHexBS})
+
 	addScriptingFunction(1, 1, 'playerToggleBagSelection', 'toggle bag to active/innactive', {Infinite})
 	addScriptingFunction(1, 1, 'moveUnitsLeft', 'move units one hex left', {BoardHexBS})
 
@@ -1540,6 +1551,12 @@ function userInitScriptingFunctions()
 
 	-- pseudo shift key up, scripting button index 5
 	addScriptingFunction(1, 5, 'toggleHexTileColor', 'toggle hex color', {BoardHexBS})
+
+	-- pseudo shift key up, scripting button index 6
+
+	-- pseudo shift key up, scripting button index 7
+
+	-- pseudo shift key up, scripting button index 8
 
 	-- pseudo shift key down, scripting button index 1
 	addScriptingFunction(2, 1, 'sendSingleFigurineToBoardHex', 'send player-selected figurine to board hex', {BoardHexBS})
@@ -1556,6 +1573,13 @@ function userInitScriptingFunctions()
 
 	-- pseudo shift key down, scripting button index 5
 	addScriptingFunction(2, 5, 'disposeOfSingleTile', 'remove tile', {Figurine})
+
+	-- pseudo shift key down, scripting button index 6
+
+	-- pseudo shift key down, scripting button index 7
+
+	-- pseudo shift key down, scripting button index 8
+
 end
 
 
@@ -1585,6 +1609,32 @@ end
 
 -- *** THESE ARE THE FUNCTIONS REFERRED TO IN THE SCRIPTING_FUNCTIONS 2-DIMENSIONAL ARRAY
 -- *** WRITE ANY AND ALL FUNCTIONS HERE AS NEEDED
+
+-- examples:
+
+	-- function cameraChange(params)
+		-- local runnerCardTile = getObjectFromGUID(PLAYER_RUNNERSPACE_TILE_GUIDS[params.playerColor])
+		-- local views = {}
+		-- table.insert(views, {position = runnerCardTile.getPosition(), pitch = 65, yaw = 0, distance = 20})
+		-- Player[params.playerColor].lookAt(views[1])
+	-- end
+
+	-- function changePlayerSeat(params)
+		-- local targetTileGUID = params.boardSpaceRef.tileGUID
+		-- local targetSeatColor
+		-- if targetTileGUID == PLAYER_HAND_TILE_GUIDS.Green then
+			-- targetSeatColor = 'Green'
+		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.Red then
+			-- targetSeatColor = 'Red'
+		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.White then
+			-- targetSeatColor = 'White'
+		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.Blue then
+			-- targetSeatColor = 'Blue'
+		-- end
+		-- if params.playerColor != targetSeatColor then
+			-- Player[params.playerColor].changeColor(targetSeatColor)	
+		-- end
+	-- end
 
 -- *** POPULATE BELOW ***
 

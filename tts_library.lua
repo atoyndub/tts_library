@@ -8,7 +8,7 @@ SCRIPTING_FUNCTIONS =
 {
 	-- pseudo shift key (scripting button index 10) is up
 	{
-		{}, -- scripting button index 1                
+		{}, -- scripting button index 1
 		{}, -- scripting button index 2
 		{}, -- scripting button index 3
 		{}, -- scripting button index 4
@@ -20,7 +20,7 @@ SCRIPTING_FUNCTIONS =
 
 	-- pseudo shift key (scripting button index 10) is down
 	{
-			{}, -- scripting button index 1                
+			{}, -- scripting button index 1
 			{}, -- scripting button index 2
 			{}, -- scripting button index 3
 			{}, -- scripting button index 4
@@ -371,12 +371,12 @@ end
 -- expects hoverObject, boardSpaceRef, playerColor, and uiElementID context properties
 function meetsPrereqs_UIElementIsNotDisplayed(context)
 	return globalUIElementExists(context.uiElementID, context.playerColor) == false
-end 
+end
 
 
 -- ****************************************
 -- *** SCRIPTING BUTTON KEY PRESS LOGIC ***
--- ****************************************	
+-- ****************************************
 
 function onScriptingButtonDown(button_index, player_presser_color)
 	if button_index == 10 then -- pseudo shift key (tab?)
@@ -505,7 +505,7 @@ function globalUIElementExists(elementID, playerColor)
 		end
 	end
 	return false
-end 
+end
 
 function toggleKeyPressInstructionsUI(player_presser_color)
 	local keyPressInstructionsElementID = 'key_press_instructions'
@@ -1061,7 +1061,6 @@ function getObjectMemoAsTable(targetObj)
 	return JSON.decode(targetObj.memo) -- previously initialized memo
 end
 
-
 -- *** FULL LIST OF GENERAL USE FUNCTIONS ***
 
 -- GETTING REFERENCES TO CODE-BASED REPRESENTATIONS OF TRACKED OBJECTS
@@ -1125,7 +1124,9 @@ end
 -- ENEMY_PLAY_TILE_GUIDS = {'123456', '234567', '345678'}
 
 -- array of named tile guids by player color example:
--- PLAYER_PLAY_TILE_GUIDS = {Green = '123456', Red = '234567', White = '345678', Blue = '456789'} 
+-- PLAYER_PLAY_TILE_GUIDS = {Green = '123456', Red = '234567', White = '345678', Blue = '456789'}
+
+-- *** POPULATE BELOW ***
 
 RUNNER_HOME_TILE_GUID = '262a53'
 RUNNER_UPGRADE_TILE_GUID = 'bd9b3a'
@@ -1761,7 +1762,7 @@ function userInitInfiniteBags()
 		-- single infinite bag syntax example
 		-- {
 			-- guid = '123456',
-			--	tag = 'EXAMPLE'} -- tag is the tag that will be assigned to this bag and any/all of its spawn
+			-- tag = 'EXAMPLE'} -- tag is the tag that will be assigned to this bag and any/all of its spawn
 		-- }
 	
 		-- *** POPULATE BELOW ***
@@ -1798,11 +1799,12 @@ function userInitBoardSpaces()
 	-- {tileGUID = '123456', zoneGUID = '654321', name = 'mySpecialSpace', associatedTags = {'SPECIAL_CARDS_1', 'SPECIAL_CARDS_2'}, playerOwners = {'Green', 'Red'}},
 	
 	-- note: these will all be sorted by tileGUID asscending (on load)
-
-	-- *** POPULATE BELOW ***
 	
 	BOARD_SPACES =
 	{
+		
+		-- *** POPULATE BELOW ***
+
 		-- runner
 		{tileGUID = RUNNER_HOME_TILE_GUID, zoneGUID = '62394d', name = 'home', associatedTags = {'RUNNER'}, playerOwners = {}},
 		{tileGUID = RUNNER_UPGRADE_TILE_GUID, zoneGUID = '9a11d6', name = 'upgrade', associatedTags = {'RUNNER'}, playerOwners = {}},
@@ -2035,13 +2037,17 @@ end
 -- function meetsPrereqs_UIElementIsDisplayed(context) -- expects context.uiElementID context property
 -- function meetsPrereqs_UIElementIsNotDisplayed(context) -- expects context.uiElementID context property
 
--- SCRIPTING_FUNCTIONS is populated below via the addScriptingFunction() helper 
+-- SCRIPTING_FUNCTIONS is populated below via the addScriptingFunction() helper
 
 function userInitScriptingFunctions()
 
         -- *** POPULATE BELOW ***
 
-        -- commonly use prerequisites
+		-- commonly use prerequisites (to support shorter addScriptingFunction() calls)
+		-- examples:
+			-- local Card = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Card'}}}
+			-- local BoardHexBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'boardHex'}}}
+
 		local DeckOrCard = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Deck', 'Card'}}}
 		local Deck = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Deck'}}}
         local Card = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Card'}}}
@@ -2104,7 +2110,9 @@ function userInitScriptingFunctions()
 		local PlayerOwnsBS = {functionName = 'meetsPrereqs_PlayerOwnsBoardSpace', addedContext = {}}
 		local MatchesBSTags = {functionName = 'meetsPrereqs_HoverObjectTagsAreSubsetOfBoardSpaceAssociatedTags', addedContext = {}}
 
-        -- pseudo shift key up, scripting button index 1
+		-- pseudo shift key up, scripting button index 1
+		-- example to assign the doStuffFunc() to scripting key one (no pseudoshift) when user hovers over a card within a 'boardHex' boardspace:
+			-- addScriptingFunction(1, 1, 'doStuffFunc', 'does stuff', {Tile, BoardHexBS})
 		addScriptingFunction(1, 1, 'sendAllBlackMarketFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, BlackMarketTag})
 		addScriptingFunction(1, 1, 'sendAllEventFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, EventTag})
 		addScriptingFunction(1, 1, 'sendAllHardObstacleFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, HardObstTag})
@@ -2921,3 +2929,29 @@ end
 	-- params.hoverObject.memo = ''
 	-- print(params.hoverObject.type .. ' memo cleared !')
 -- end
+
+-- examples:
+
+	-- function cameraChange(params)
+		-- local runnerCardTile = getObjectFromGUID(PLAYER_RUNNERSPACE_TILE_GUIDS[params.playerColor])
+		-- local views = {}
+		-- table.insert(views, {position = runnerCardTile.getPosition(), pitch = 65, yaw = 0, distance = 20})
+		-- Player[params.playerColor].lookAt(views[1])
+	-- end
+
+	-- function changePlayerSeat(params)
+		-- local targetTileGUID = params.boardSpaceRef.tileGUID
+		-- local targetSeatColor
+		-- if targetTileGUID == PLAYER_HAND_TILE_GUIDS.Green then
+			-- targetSeatColor = 'Green'
+		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.Red then
+			-- targetSeatColor = 'Red'
+		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.White then
+			-- targetSeatColor = 'White'
+		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.Blue then
+			-- targetSeatColor = 'Blue'
+		-- end
+		-- if params.playerColor != targetSeatColor then
+			-- Player[params.playerColor].changeColor(targetSeatColor)	
+		-- end
+	-- end

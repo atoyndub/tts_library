@@ -20,16 +20,16 @@ SCRIPTING_FUNCTIONS =
 
 	-- pseudo shift key (scripting button index 10) is down
 	{
-			{}, -- scripting button index 1
-			{}, -- scripting button index 2
-			{}, -- scripting button index 3
-			{}, -- scripting button index 4
-			{}, -- scripting button index 5
-			{}, -- scripting button index 6
-			{}, -- scripting button index 7
-			{}, -- scripting button index 8
+		{}, -- scripting button index 1
+		{}, -- scripting button index 2
+		{}, -- scripting button index 3
+		{}, -- scripting button index 4
+		{}, -- scripting button index 5
+		{}, -- scripting button index 6
+		{}, -- scripting button index 7
+		{}, -- scripting button index 8
 	}
-} 
+}
 
 -- **************
 -- *** COLORS ***

@@ -2245,7 +2245,7 @@ function userDefinedOnObjectEnterContainerTasks(container, object)
 	object.setDecals({}) -- undraw any decals
 end
 
-function userDefinedOnObjectLeaveContainerTasks(container, object)	
+function userDefinedOnObjectLeaveContainerTasks(container, object)
 	-- *** POPULATE BELOW WITH ANY USER-DEFINED TASKS WHICH NEED TO BE COMPLETED ON OBJECT LEAVE CONTAINER ***
 	
 	if object.type == "Card" and object.getTags()[1] == 'RUNNER' then

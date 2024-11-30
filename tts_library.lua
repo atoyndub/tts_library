@@ -2261,6 +2261,32 @@ end
 -- *** THESE ARE THE FUNCTIONS REFERRED TO IN THE SCRIPTING_FUNCTIONS 2-DIMENSIONAL ARRAY
 -- *** WRITE ANY AND ALL FUNCTIONS HERE AS NEEDED
 
+-- examples:
+
+	-- function cameraChange(params)
+		-- local runnerCardTile = getObjectFromGUID(PLAYER_RUNNERSPACE_TILE_GUIDS[params.playerColor])
+		-- local views = {}
+		-- table.insert(views, {position = runnerCardTile.getPosition(), pitch = 65, yaw = 0, distance = 20})
+		-- Player[params.playerColor].lookAt(views[1])
+	-- end
+
+	-- function changePlayerSeat(params)
+		-- local targetTileGUID = params.boardSpaceRef.tileGUID
+		-- local targetSeatColor
+		-- if targetTileGUID == PLAYER_HAND_TILE_GUIDS.Green then
+			-- targetSeatColor = 'Green'
+		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.Red then
+			-- targetSeatColor = 'Red'
+		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.White then
+			-- targetSeatColor = 'White'
+		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.Blue then
+			-- targetSeatColor = 'Blue'
+		-- end
+		-- if params.playerColor != targetSeatColor then
+			-- Player[params.playerColor].changeColor(targetSeatColor)	
+		-- end
+	-- end
+
 -- *** POPULATE BELOW ***
 
 function shuffleDeck(params)
@@ -2930,29 +2956,3 @@ end
 	-- params.hoverObject.memo = ''
 	-- print(params.hoverObject.type .. ' memo cleared !')
 -- end
-
--- examples:
-
-	-- function cameraChange(params)
-		-- local runnerCardTile = getObjectFromGUID(PLAYER_RUNNERSPACE_TILE_GUIDS[params.playerColor])
-		-- local views = {}
-		-- table.insert(views, {position = runnerCardTile.getPosition(), pitch = 65, yaw = 0, distance = 20})
-		-- Player[params.playerColor].lookAt(views[1])
-	-- end
-
-	-- function changePlayerSeat(params)
-		-- local targetTileGUID = params.boardSpaceRef.tileGUID
-		-- local targetSeatColor
-		-- if targetTileGUID == PLAYER_HAND_TILE_GUIDS.Green then
-			-- targetSeatColor = 'Green'
-		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.Red then
-			-- targetSeatColor = 'Red'
-		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.White then
-			-- targetSeatColor = 'White'
-		-- elseif targetTileGUID == PLAYER_HAND_TILE_GUIDS.Blue then
-			-- targetSeatColor = 'Blue'
-		-- end
-		-- if params.playerColor != targetSeatColor then
-			-- Player[params.playerColor].changeColor(targetSeatColor)	
-		-- end
-	-- end

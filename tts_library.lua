@@ -1251,7 +1251,6 @@ function userInitScriptingFunctions()
 		-- local Card = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Card'}}}
 		-- local BoardHexBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'boardHex'}}}
 
-
 	-- pseudo shift key up, scripting button index 1
 	-- example to assign the doStuffFunc() to scripting key one (no pseudoshift) when user hovers over a card within a 'boardHex' boardspace:
 		-- addScriptingFunction(1, 1, 'doStuffFunc', 'does stuff', {Tile, BoardHexBS})
@@ -1289,9 +1288,9 @@ function userInitScriptingFunctions()
 end
 
 
--- **********************************
+-- ***********************************
 -- *** USER DEFINED ON EVENT TASKS ***
--- **********************************
+-- ***********************************
 
 function userDefinedOnLoadTasks()
 	-- *** POPULATE BELOW WITH ANY USER-DEFINED TASKS WHICH NEED TO BE COMPLETED ON STARTUP ***

@@ -8,7 +8,7 @@ SCRIPTING_FUNCTIONS =
 {
 	-- pseudo shift key (scripting button index 10) is up
 	{
-		{}, -- scripting button index 1		
+		{}, -- scripting button index 1
 		{}, -- scripting button index 2
 		{}, -- scripting button index 3
 		{}, -- scripting button index 4
@@ -17,10 +17,10 @@ SCRIPTING_FUNCTIONS =
 		{}, -- scripting button index 7
 		{}, -- scripting button index 8
 	},
-	
+
 	-- pseudo shift key (scripting button index 10) is down
 	{
-		{}, -- scripting button index 1		
+		{}, -- scripting button index 1
 		{}, -- scripting button index 2
 		{}, -- scripting button index 3
 		{}, -- scripting button index 4
@@ -1117,6 +1117,7 @@ end
 
 -- optionally assign specific guids names here, to make accessing
 -- the associated objects in later functions simpler/easier
+
 -- single named tile guid example:
 -- ENEMY_DISCARD_TILE_GUID = '123456'
 
@@ -1340,7 +1341,7 @@ function userInitBoardSpaces()
 	
 	BOARD_SPACES =
 	{
-		
+
 		-- *** POPULATE BELOW ***
 		
 		-- board hexes
@@ -1583,9 +1584,9 @@ function userInitScriptingFunctions()
 end
 
 
--- **********************************
--- *** USER DEFINED ON LOAD TASKS ***
--- **********************************
+-- ***********************************
+-- *** USER DEFINED ON EVENT TASKS ***
+-- ***********************************
 
 function userDefinedOnLoadTasks()
 	-- *** POPULATE BELOW WITH ANY USER-DEFINED TASKS WHICH NEED TO BE COMPLETED ON STARTUP ***

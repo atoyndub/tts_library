@@ -1315,8 +1315,6 @@ end
 -- *** THESE ARE THE FUNCTIONS REFERRED TO IN THE SCRIPTING_FUNCTIONS 2-DIMENSIONAL ARRAY
 -- *** WRITE ANY AND ALL FUNCTIONS HERE AS NEEDED
 
--- *** POPULATE BELOW ***
-
 -- examples:
 
 	-- function cameraChange(params)
@@ -1342,3 +1340,5 @@ end
 			-- Player[params.playerColor].changeColor(targetSeatColor)	
 		-- end
 	-- end
+
+-- *** POPULATE BELOW ***

@@ -1803,7 +1803,7 @@ function userInitBoardSpaces()
 	
 	BOARD_SPACES =
 	{
-		
+
 		-- *** POPULATE BELOW ***
 
 		-- runner
@@ -2041,8 +2041,8 @@ end
 -- SCRIPTING_FUNCTIONS is populated below via the addScriptingFunction() helper
 
 function userInitScriptingFunctions()
-
-        -- *** POPULATE BELOW ***
+	
+		-- *** POPULATE BELOW ***
 
 		-- commonly use prerequisites (to support shorter addScriptingFunction() calls)
 		-- examples:

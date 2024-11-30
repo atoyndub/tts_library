@@ -1117,6 +1117,7 @@ end
 
 -- optionally assign specific guids names here, to make accessing
 -- the associated objects in later functions simpler/easier
+
 -- single named tile guid example:
 -- ENEMY_DISCARD_TILE_GUID = '123456'
 

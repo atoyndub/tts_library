@@ -2041,190 +2041,190 @@ end
 -- SCRIPTING_FUNCTIONS is populated below via the addScriptingFunction() helper
 
 function userInitScriptingFunctions()
+
+	-- *** POPULATE BELOW ***
+
+	-- commonly use prerequisites (to support shorter addScriptingFunction() calls)
+	-- examples:
+		-- local Card = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Card'}}}
+		-- local BoardHexBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'boardHex'}}}
+
+	local DeckOrCard = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Deck', 'Card'}}}
+	local Deck = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Deck'}}}
+	local Card = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Card'}}}
+	local Infinite = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Infinite'}}}
+	local Tile = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Tile'}}}
+	local RunnerTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'RUNNER'}}}
+	local BlackMarketTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'BLACK_MARKET'}}}
+	local EventTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'EVENT'}}}
+	local HardObstTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'HARD_OBSTACLE'}}}
+	local NormObstTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'NORMAL_OBSTACLE'}}}
+	local ObstTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'NORMAL_OBSTACLE', 'HARD_OBSTACLE'}}}
+	local KarmaTag =
+	{
+		functionName = 'meetsPrereqs_HoverObjectTagsPermitted',
+		addedContext =
+		{
+			tagsPermitted =
+			{
+				'UPGRADE_FIVE_KARMA', 'UPGRADE_TEN_KARMA', 'UPGRADE_FIFTEEN_KARMA', 'UPGRADE_TWENTY_KARMA', 'UPGRADE_TWENTYFIVE_KARMA',
+				'UPGRADE_THIRTY_KARMA', 'UPGRADE_THIRTYFIVE_KARMA', 'UPGRADE_FORTY_KARMA', 'UPGRADE_FORTYFIVE_KARMA', 'UPGRADE_FIFTY_KARMA'
+			}
+		}
+	}
+	local TokenTag =
+	{
+		functionName = 'meetsPrereqs_HoverObjectTagsPermitted',
+		addedContext =
+		{
+			tagsPermitted =
+			{
+				'TILE_MOD_NEG_THREE', 'TILE_MOD_NEG_TWO', 'TILE_MOD_NEG_ONE', 'TILE_MOD_POS_ONE', 'TILE_MOD_POS_TWO', 'TILE_MOD_POS_THREE',
+				'TILE_NUYEN_ONE', 'TILE_NUYEN_THREE', 'TILE_NUYEN_FIVE', 'TILE_HEALTH', 'TILE_MAX_HEALTH', 'TILE_GENERIC_ROUND',
+				'TILE_GENERIC_SQUARE', 'TILE_EXHAUSTED', 'TILE_DAMAGE'
+			}
+		}
+	}
+	local HomeBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'home'}}}
+	local HomeOrDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'home', 'draw', 'draw_black_market', 'draw_normal_obstacle', 'draw_hard_obstacle', 'draw_event'}}}
+	local ModTokensBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'modifier_tokens'}}}
+	local NuyenTokensBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'nuyen_tokens'}}}
+	local VarTokensBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'various_tokens'}}}
+	local AnyTokensBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'modifier_tokens', 'nuyen_tokens', 'various_tokens'}}}
+	local StickerBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'sticker'}}}
+	local BlackMarketDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'draw_black_market'}}}
+	local BlackMarketDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_black_market', 'drawn_black_market_optional'}}}
+	local OptionalBlackMarketDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_black_market_optional'}}}
+	local NormObstDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'draw_normal_obstacle'}}}
+	local HardObstDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'draw_hard_obstacle'}}}
+	local NormObstDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_normal_obstacle'}}}
+	local HardObstDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_hard_obstacle'}}}
+	local ObstDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_normal_obstacle', 'drawn_hard_obstacle'}}}
+	local EventDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'draw_event'}}}
+	local EventDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_event'}}}
+	local UpgradeBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'upgrade'}}}
+	local PlayerObstBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'obstacleSpace'}}}
+	local PlayerDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'draw_player'}}}
+	local PlayerDiscardBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'discard_player'}}}
+	local PlayerHandBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'hand'}}}
+	local PlayerPlayBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'playSpace'}}}
+	local PlayerOwnsBS = {functionName = 'meetsPrereqs_PlayerOwnsBoardSpace', addedContext = {}}
+	local MatchesBSTags = {functionName = 'meetsPrereqs_HoverObjectTagsAreSubsetOfBoardSpaceAssociatedTags', addedContext = {}}
+
+	-- pseudo shift key up, scripting button index 1
+	-- example to assign the doStuffFunc() to scripting key one (no pseudoshift) when user hovers over a card within a 'boardHex' boardspace:
+		-- addScriptingFunction(1, 1, 'doStuffFunc', 'does stuff', {Tile, BoardHexBS})
+	addScriptingFunction(1, 1, 'sendAllBlackMarketFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, BlackMarketTag})
+	addScriptingFunction(1, 1, 'sendAllEventFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, EventTag})
+	addScriptingFunction(1, 1, 'sendAllHardObstacleFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, HardObstTag})
+	addScriptingFunction(1, 1, 'sendAllNormalObstacleFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, NormObstTag})
+	addScriptingFunction(1, 1, 'sendTopCardFromHomeZoneToPlayBoard', 'send top card to play board',
+	{
+		-- maybe need to change this name and separate out this function definition into multiple functions
+		{functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'home', 'upgrade'}}},
+		DeckOrCard,
+		{
+			functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted =
+			{
+				'RUNNER', 'MANA', 'MARK', 'STREET_SMARTS', 'QUICK_SHOT','MISSION',
+				'SINGLE_ROLE', 'HYBRID_ROLE', 'DUAL_ROLE', 'TURN_SEQUENCE'
+			}}
+		},
+	})
+	addScriptingFunction(1, 1, 'sendTopKarmaCardFromHomeZoneToRunnerUpgradeTile', 'send top card to runner upgrade tile', {HomeBS, DeckOrCard, KarmaTag})
+	addScriptingFunction(1, 1, 'affixKarmaUpgradeToRunnerCardSlot1', 'affix karma upgrade to slot 1', {StickerBS, Card, MatchesBSTags})
+	addScriptingFunction(1, 1, 'oneModPos1TileToPlayer', 'take one +1 mod tile', {ModTokensBS, PlayerOwnsBS})
+	addScriptingFunction(1, 1, 'oneNuyen1TileToPlayer', 'take one nuyen 1 tile', {NuyenTokensBS, PlayerOwnsBS})
+	addScriptingFunction(1, 1, 'oneMaxHealthTileToPlayer', 'take one max health tile', {VarTokensBS, PlayerOwnsBS})
+	addScriptingFunction(1, 1, 'sendTopBlackMarketCardFromDrawZoneToNextAvailableDrawnTile', 'draw one card to available space', {BlackMarketDrawBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 1, 'sendTopBlackMarketCardFromDrawnZoneToPlayerHand', 'send one card to hand', {BlackMarketDrawnBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 1, 'sendTopNormalObstacleCardFromDrawZoneToDrawnTile', 'draw one card', {NormObstDrawBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 1, 'sendTopHardObstacleCardFromDrawZoneToDrawnTile', 'draw one card', {HardObstDrawBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 1, 'sendTopObstacleCardFromDrawnZoneToPlayerObstacleTile', 'send one obstacle to player', {ObstDrawnBS, DeckOrCard, ObstTag})
+	addScriptingFunction(1, 1, 'sendSingleTokenToPlayerTileFromHoveredBag', 'send one token to player', {Infinite, TokenTag})
+	addScriptingFunction(1, 1, 'sendTopEventCardFromDrawZoneToDrawnTile', 'draw one card', {EventDrawBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 1, 'sendHoveredObstacleCardOrDeckFromPlayerObstacleSpaceToObstacleDiscardTile', 'send obstacle to discard',
+				{PlayerObstBS, Card, PlayerOwnsBS, ObstTag})
+	addScriptingFunction(1, 1, 'sendTopPlayerDrawCardToPlayerHand', 'draw one card to hand', {PlayerDrawBS, DeckOrCard, PlayerOwnsBS, MatchesBSTags})
+	addScriptingFunction(1, 1, 'sendAllPlayerDiscardCardsAndDecksToPlayerDraw', 'return all to draw pile', {PlayerDiscardBS, DeckOrCard, PlayerOwnsBS, MatchesBSTags})
+	addScriptingFunction(1, 1, 'sendHoveredCardFromPlayerHandZoneToPlayerPlayTile', 'play card', {PlayerHandBS, Card, PlayerOwnsBS, MatchesBSTags})
 	
-		-- *** POPULATE BELOW ***
+	-- pseudo shift key up, scripting button index 2
+	addScriptingFunction(1, 2, 'sendTopRunnerCardFromUpgradeZoneToHomeTile', 'return top card to home tile', {UpgradeBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 2, 'sendTopRunnerCardFromHomeZoneToUpgradeTile', 'send top card to upgrade tile', {HomeBS, DeckOrCard, RunnerTag})
+	addScriptingFunction(1, 2, 'affixKarmaUpgradeToRunnerCardSlot2', 'affix karma upgrade to slot 2', {StickerBS, Card, MatchesBSTags})
+	addScriptingFunction(1, 2, 'oneModPos2TileToPlayer', 'take one +2 mod tile', {ModTokensBS, PlayerOwnsBS})
+	addScriptingFunction(1, 2, 'oneNuyen3TileToPlayer', 'take one nuyen 3 tile', {NuyenTokensBS, PlayerOwnsBS})
+	addScriptingFunction(1, 2, 'oneHealthTileToPlayer', 'take one health tile', {VarTokensBS, PlayerOwnsBS})
+	addScriptingFunction(1, 2, 'sendTopBlackMarketCardFromDrawnZoneToDiscardTile', 'discard top card', {BlackMarketDrawBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 2, 'sendTopNormalObstacleCardFromDrawZoneToDiscardTile', 'discard top card', {NormObstDrawBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 2, 'sendTopHardObstacleCardFromDrawZoneToDiscardTile', 'discard top card', {HardObstDrawBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 2, 'sendTopEventCardFromDrawZoneToDiscardTile', 'discard top card', {EventDrawBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 2, 'sendTopNormalObstacleCardFromDrawnZoneToDiscardTile', 'discard top card', {NormObstDrawnBS, DeckOrCard, MatchesBSTags})        
+	addScriptingFunction(1, 2, 'sendTopHardObstacleCardFromDrawnZoneToDiscardTile', 'discard top card', {HardObstDrawnBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 2, 'sendTopEventCardFromDrawnZoneToDiscardTile', 'discard top card', {EventDrawnBS, DeckOrCard, MatchesBSTags})
+	addScriptingFunction(1, 2, 'sendHoveredCardFromPlayerHandZoneToPlayerDiscardTile', 'discard card', {PlayerHandBS, Card, PlayerOwnsBS, MatchesBSTags})
+	addScriptingFunction(1, 2, 'sendTopPlayerDiscardCardToPlayerHand', 'return top to hand', {PlayerDiscardBS, DeckOrCard, PlayerOwnsBS, MatchesBSTags})
+	addScriptingFunction(1, 2, 'sendHoveredCardFromPlayerPlaySpaceToPlayerHandTile', 'return to hand', {PlayerPlayBS, DeckOrCard, PlayerOwnsBS, MatchesBSTags})
+	
+	-- pseudo shift key up, scripting button index 3
+	addScriptingFunction(1, 3, 'gatherAllToHomeZone', 'gather all cards/decks to home tile', {HomeBS})
+	addScriptingFunction(1, 3, 'affixKarmaUpgradeToRunnerCardSlot3', 'affix karma upgrade to slot 3', {StickerBS, Card, MatchesBSTags})
+	addScriptingFunction(1, 3, 'oneModPos3TileToPlayer', 'take one +3 mod tile', {ModTokensBS, PlayerOwnsBS})
+	addScriptingFunction(1, 3, 'oneNuyen5TileToPlayer', 'take one nuyen 5 tile', {NuyenTokensBS, PlayerOwnsBS})
+	addScriptingFunction(1, 3, 'oneGenericRoundTileToPlayer', 'take one generic round tile', {VarTokensBS, PlayerOwnsBS})
+	addScriptingFunction(1, 3, 'removeAllTilesAssociatedWithHoveredBag', 'remove all tokens associated with bag', {Infinite, TokenTag})
+	addScriptingFunction(1, 3, 'sendAllPlayCardsAndDecksInPlayerPlaySpaceToPlayerDiscard', 'discard all', {PlayerPlayBS, PlayerOwnsBS})
 
-		-- commonly use prerequisites (to support shorter addScriptingFunction() calls)
-		-- examples:
-			-- local Card = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Card'}}}
-			-- local BoardHexBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'boardHex'}}}
+	-- pseudo shift key up, scripting button index 4
+	addScriptingFunction(1, 4, 'cycleCardInDeck', 'move bottom card to top of deck', {HomeBS, Deck})
+	addScriptingFunction(1, 4, 'cycleCardInDeck', 'move bottom card to top of deck', {PlayerDiscardBS, Deck, PlayerOwnsBS})
+	addScriptingFunction(1, 4, 'affixKarmaUpgradeToRunnerCardSlot4', 'affix karma upgrade to slot 4', {StickerBS, Card, MatchesBSTags})
+	addScriptingFunction(1, 4, 'spreadObstaclesInPlayerObstacleSpace', 'spread obstacles', {PlayerObstBS, PlayerOwnsBS})
+	addScriptingFunction(1, 4, 'spreadPlayCardsInPlayerPlaySpace', 'spread play cards', {PlayerPlayBS, PlayerOwnsBS})
+	addScriptingFunction(1, 4, 'disposeOfSingleTile', 'remove single token', {Tile, TokenTag})
 
-		local DeckOrCard = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Deck', 'Card'}}}
-		local Deck = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Deck'}}}
-        local Card = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Card'}}}
-		local Infinite = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Infinite'}}}
-        local Tile = {functionName = 'meetsPrereqs_HoverObjectTypePermitted', addedContext = {typesPermitted = {'Tile'}}}
-        local RunnerTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'RUNNER'}}}
-		local BlackMarketTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'BLACK_MARKET'}}}
-		local EventTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'EVENT'}}}
-		local HardObstTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'HARD_OBSTACLE'}}}
-		local NormObstTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'NORMAL_OBSTACLE'}}}
-		local ObstTag = {functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted = {'NORMAL_OBSTACLE', 'HARD_OBSTACLE'}}}
-		local KarmaTag =
-		{
-			functionName = 'meetsPrereqs_HoverObjectTagsPermitted',
-			addedContext =
-			{
-				tagsPermitted =
-				{
-					'UPGRADE_FIVE_KARMA', 'UPGRADE_TEN_KARMA', 'UPGRADE_FIFTEEN_KARMA', 'UPGRADE_TWENTY_KARMA', 'UPGRADE_TWENTYFIVE_KARMA',
-					'UPGRADE_THIRTY_KARMA', 'UPGRADE_THIRTYFIVE_KARMA', 'UPGRADE_FORTY_KARMA', 'UPGRADE_FORTYFIVE_KARMA', 'UPGRADE_FIFTY_KARMA'
-				}
-			}
-		}
-		local TokenTag =
-		{
-			functionName = 'meetsPrereqs_HoverObjectTagsPermitted',
-			addedContext =
-			{
-				tagsPermitted =
-				{
-					'TILE_MOD_NEG_THREE', 'TILE_MOD_NEG_TWO', 'TILE_MOD_NEG_ONE', 'TILE_MOD_POS_ONE', 'TILE_MOD_POS_TWO', 'TILE_MOD_POS_THREE',
-					'TILE_NUYEN_ONE', 'TILE_NUYEN_THREE', 'TILE_NUYEN_FIVE', 'TILE_HEALTH', 'TILE_MAX_HEALTH', 'TILE_GENERIC_ROUND',
-					'TILE_GENERIC_SQUARE', 'TILE_EXHAUSTED', 'TILE_DAMAGE'
-				}
-			}
-		}
-		local HomeBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'home'}}}
-        local HomeOrDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'home', 'draw', 'draw_black_market', 'draw_normal_obstacle', 'draw_hard_obstacle', 'draw_event'}}}
-		local ModTokensBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'modifier_tokens'}}}
-		local NuyenTokensBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'nuyen_tokens'}}}
-		local VarTokensBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'various_tokens'}}}
-		local AnyTokensBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'modifier_tokens', 'nuyen_tokens', 'various_tokens'}}}
-		local StickerBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'sticker'}}}
-		local BlackMarketDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'draw_black_market'}}}
-		local BlackMarketDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_black_market', 'drawn_black_market_optional'}}}
-		local OptionalBlackMarketDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_black_market_optional'}}}
-        local NormObstDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'draw_normal_obstacle'}}}
-		local HardObstDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'draw_hard_obstacle'}}}
-        local NormObstDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_normal_obstacle'}}}
-        local HardObstDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_hard_obstacle'}}}
-		local ObstDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_normal_obstacle', 'drawn_hard_obstacle'}}}
-		local EventDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'draw_event'}}}
-        local EventDrawnBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'drawn_event'}}}
-		local UpgradeBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'upgrade'}}}
-		local PlayerObstBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'obstacleSpace'}}}
-		local PlayerDrawBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'draw_player'}}}
-		local PlayerDiscardBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'discard_player'}}}
-		local PlayerHandBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'hand'}}}
-        local PlayerPlayBS = {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'playSpace'}}}
-		local PlayerOwnsBS = {functionName = 'meetsPrereqs_PlayerOwnsBoardSpace', addedContext = {}}
-		local MatchesBSTags = {functionName = 'meetsPrereqs_HoverObjectTagsAreSubsetOfBoardSpaceAssociatedTags', addedContext = {}}
+	-- pseudo shift key up, scripting button index 5
+	addScriptingFunction(1, 5, 'shuffleDeck', 'shuffle the deck', {HomeOrDrawBS, Deck})
+	addScriptingFunction(1, 5, 'shuffleDeck', 'shuffle the deck', {PlayerDrawBS, Deck, PlayerOwnsBS})
 
-		-- pseudo shift key up, scripting button index 1
-		-- example to assign the doStuffFunc() to scripting key one (no pseudoshift) when user hovers over a card within a 'boardHex' boardspace:
-			-- addScriptingFunction(1, 1, 'doStuffFunc', 'does stuff', {Tile, BoardHexBS})
-		addScriptingFunction(1, 1, 'sendAllBlackMarketFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, BlackMarketTag})
-		addScriptingFunction(1, 1, 'sendAllEventFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, EventTag})
-		addScriptingFunction(1, 1, 'sendAllHardObstacleFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, HardObstTag})
-		addScriptingFunction(1, 1, 'sendAllNormalObstacleFromHomeZoneToDraw', 'send all cards to draw tile', {HomeBS, DeckOrCard, NormObstTag})
-		addScriptingFunction(1, 1, 'sendTopCardFromHomeZoneToPlayBoard', 'send top card to play board',
-		{
-            -- maybe need to change this name and separate out this function definition into multiple functions
-            {functionName = 'meetsPrereqs_BoardSpaceNamePermitted', addedContext = {namesPermitted = {'home', 'upgrade'}}},
-			DeckOrCard,
-			{
-				functionName = 'meetsPrereqs_HoverObjectTagsPermitted', addedContext = {tagsPermitted =
-				{
-					'RUNNER', 'MANA', 'MARK', 'STREET_SMARTS', 'QUICK_SHOT','MISSION',
-					'SINGLE_ROLE', 'HYBRID_ROLE', 'DUAL_ROLE', 'TURN_SEQUENCE'
-				}}
-			},
-		})
-		addScriptingFunction(1, 1, 'sendTopKarmaCardFromHomeZoneToRunnerUpgradeTile', 'send top card to runner upgrade tile', {HomeBS, DeckOrCard, KarmaTag})
-		addScriptingFunction(1, 1, 'affixKarmaUpgradeToRunnerCardSlot1', 'affix karma upgrade to slot 1', {StickerBS, Card, MatchesBSTags})
-		addScriptingFunction(1, 1, 'oneModPos1TileToPlayer', 'take one +1 mod tile', {ModTokensBS, PlayerOwnsBS})
-		addScriptingFunction(1, 1, 'oneNuyen1TileToPlayer', 'take one nuyen 1 tile', {NuyenTokensBS, PlayerOwnsBS})
-		addScriptingFunction(1, 1, 'oneMaxHealthTileToPlayer', 'take one max health tile', {VarTokensBS, PlayerOwnsBS})
-		addScriptingFunction(1, 1, 'sendTopBlackMarketCardFromDrawZoneToNextAvailableDrawnTile', 'draw one card to available space', {BlackMarketDrawBS, DeckOrCard, MatchesBSTags})
-		addScriptingFunction(1, 1, 'sendTopBlackMarketCardFromDrawnZoneToPlayerHand', 'send one card to hand', {BlackMarketDrawnBS, DeckOrCard, MatchesBSTags})
-		addScriptingFunction(1, 1, 'sendTopNormalObstacleCardFromDrawZoneToDrawnTile', 'draw one card', {NormObstDrawBS, DeckOrCard, MatchesBSTags})
-		addScriptingFunction(1, 1, 'sendTopHardObstacleCardFromDrawZoneToDrawnTile', 'draw one card', {HardObstDrawBS, DeckOrCard, MatchesBSTags})
-		addScriptingFunction(1, 1, 'sendTopObstacleCardFromDrawnZoneToPlayerObstacleTile', 'send one obstacle to player', {ObstDrawnBS, DeckOrCard, ObstTag})
-		addScriptingFunction(1, 1, 'sendSingleTokenToPlayerTileFromHoveredBag', 'send one token to player', {Infinite, TokenTag})
-		addScriptingFunction(1, 1, 'sendTopEventCardFromDrawZoneToDrawnTile', 'draw one card', {EventDrawBS, DeckOrCard, MatchesBSTags})
-		addScriptingFunction(1, 1, 'sendHoveredObstacleCardOrDeckFromPlayerObstacleSpaceToObstacleDiscardTile', 'send obstacle to discard',
-					{PlayerObstBS, Card, PlayerOwnsBS, ObstTag})
-		addScriptingFunction(1, 1, 'sendTopPlayerDrawCardToPlayerHand', 'draw one card to hand', {PlayerDrawBS, DeckOrCard, PlayerOwnsBS, MatchesBSTags})
-		addScriptingFunction(1, 1, 'sendAllPlayerDiscardCardsAndDecksToPlayerDraw', 'return all to draw pile', {PlayerDiscardBS, DeckOrCard, PlayerOwnsBS, MatchesBSTags})
-		addScriptingFunction(1, 1, 'sendHoveredCardFromPlayerHandZoneToPlayerPlayTile', 'play card', {PlayerHandBS, Card, PlayerOwnsBS, MatchesBSTags})
-		
-		-- pseudo shift key up, scripting button index 2
-		addScriptingFunction(1, 2, 'sendTopRunnerCardFromUpgradeZoneToHomeTile', 'return top card to home tile', {UpgradeBS, DeckOrCard, MatchesBSTags})
-        addScriptingFunction(1, 2, 'sendTopRunnerCardFromHomeZoneToUpgradeTile', 'send top card to upgrade tile', {HomeBS, DeckOrCard, RunnerTag})
-        addScriptingFunction(1, 2, 'affixKarmaUpgradeToRunnerCardSlot2', 'affix karma upgrade to slot 2', {StickerBS, Card, MatchesBSTags})
-		addScriptingFunction(1, 2, 'oneModPos2TileToPlayer', 'take one +2 mod tile', {ModTokensBS, PlayerOwnsBS})
-		addScriptingFunction(1, 2, 'oneNuyen3TileToPlayer', 'take one nuyen 3 tile', {NuyenTokensBS, PlayerOwnsBS})
-		addScriptingFunction(1, 2, 'oneHealthTileToPlayer', 'take one health tile', {VarTokensBS, PlayerOwnsBS})
-        addScriptingFunction(1, 2, 'sendTopBlackMarketCardFromDrawnZoneToDiscardTile', 'discard top card', {BlackMarketDrawBS, DeckOrCard, MatchesBSTags})
-        addScriptingFunction(1, 2, 'sendTopNormalObstacleCardFromDrawZoneToDiscardTile', 'discard top card', {NormObstDrawBS, DeckOrCard, MatchesBSTags})
-        addScriptingFunction(1, 2, 'sendTopHardObstacleCardFromDrawZoneToDiscardTile', 'discard top card', {HardObstDrawBS, DeckOrCard, MatchesBSTags})
-        addScriptingFunction(1, 2, 'sendTopEventCardFromDrawZoneToDiscardTile', 'discard top card', {EventDrawBS, DeckOrCard, MatchesBSTags})
-        addScriptingFunction(1, 2, 'sendTopNormalObstacleCardFromDrawnZoneToDiscardTile', 'discard top card', {NormObstDrawnBS, DeckOrCard, MatchesBSTags})        
-        addScriptingFunction(1, 2, 'sendTopHardObstacleCardFromDrawnZoneToDiscardTile', 'discard top card', {HardObstDrawnBS, DeckOrCard, MatchesBSTags})
-        addScriptingFunction(1, 2, 'sendTopEventCardFromDrawnZoneToDiscardTile', 'discard top card', {EventDrawnBS, DeckOrCard, MatchesBSTags})
-        addScriptingFunction(1, 2, 'sendHoveredCardFromPlayerHandZoneToPlayerDiscardTile', 'discard card', {PlayerHandBS, Card, PlayerOwnsBS, MatchesBSTags})
-        addScriptingFunction(1, 2, 'sendTopPlayerDiscardCardToPlayerHand', 'return top to hand', {PlayerDiscardBS, DeckOrCard, PlayerOwnsBS, MatchesBSTags})
-        addScriptingFunction(1, 2, 'sendHoveredCardFromPlayerPlaySpaceToPlayerHandTile', 'return to hand', {PlayerPlayBS, DeckOrCard, PlayerOwnsBS, MatchesBSTags})
-        
-		-- pseudo shift key up, scripting button index 3
-        addScriptingFunction(1, 3, 'gatherAllToHomeZone', 'gather all cards/decks to home tile', {HomeBS})
-        addScriptingFunction(1, 3, 'affixKarmaUpgradeToRunnerCardSlot3', 'affix karma upgrade to slot 3', {StickerBS, Card, MatchesBSTags})
-		addScriptingFunction(1, 3, 'oneModPos3TileToPlayer', 'take one +3 mod tile', {ModTokensBS, PlayerOwnsBS})
-		addScriptingFunction(1, 3, 'oneNuyen5TileToPlayer', 'take one nuyen 5 tile', {NuyenTokensBS, PlayerOwnsBS})
-		addScriptingFunction(1, 3, 'oneGenericRoundTileToPlayer', 'take one generic round tile', {VarTokensBS, PlayerOwnsBS})
-        addScriptingFunction(1, 3, 'removeAllTilesAssociatedWithHoveredBag', 'remove all tokens associated with bag', {Infinite, TokenTag})
-        addScriptingFunction(1, 3, 'sendAllPlayCardsAndDecksInPlayerPlaySpaceToPlayerDiscard', 'discard all', {PlayerPlayBS, PlayerOwnsBS})
+	-- pseudo shift key up, scripting button index 6
 
-		-- pseudo shift key up, scripting button index 4
-        addScriptingFunction(1, 4, 'cycleCardInDeck', 'move bottom card to top of deck', {HomeBS, Deck})
-        addScriptingFunction(1, 4, 'cycleCardInDeck', 'move bottom card to top of deck', {PlayerDiscardBS, Deck, PlayerOwnsBS})
-        addScriptingFunction(1, 4, 'affixKarmaUpgradeToRunnerCardSlot4', 'affix karma upgrade to slot 4', {StickerBS, Card, MatchesBSTags})
-        addScriptingFunction(1, 4, 'spreadObstaclesInPlayerObstacleSpace', 'spread obstacles', {PlayerObstBS, PlayerOwnsBS})
-        addScriptingFunction(1, 4, 'spreadPlayCardsInPlayerPlaySpace', 'spread play cards', {PlayerPlayBS, PlayerOwnsBS})
-        addScriptingFunction(1, 4, 'disposeOfSingleTile', 'remove single token', {Tile, TokenTag})
+	-- pseudo shift key up, scripting button index 7
 
-		-- pseudo shift key up, scripting button index 5
-        addScriptingFunction(1, 5, 'shuffleDeck', 'shuffle the deck', {HomeOrDrawBS, Deck})
-        addScriptingFunction(1, 5, 'shuffleDeck', 'shuffle the deck', {PlayerDrawBS, Deck, PlayerOwnsBS})
+	-- pseudo shift key up, scripting button index 8
 
-		-- pseudo shift key up, scripting button index 6
+	-- pseudo shift key down, scripting button index 1
+	addScriptingFunction(2, 1, 'clearKarmaUpgradeFromRunnerCardSlot1', 'clear karma upgrade from slot 1', {StickerBS})
+	addScriptingFunction(2, 1, 'oneModNeg1TileToPlayer', 'take one -1 mod tile', {ModTokensBS, PlayerOwnsBS})
+	addScriptingFunction(2, 1, 'oneGenericSquareTileToPlayer', 'take one generic square tile', {VarTokensBS, PlayerOwnsBS})
 
-		-- pseudo shift key up, scripting button index 7
+	-- pseudo shift key down, scripting button index 2
+	addScriptingFunction(2, 2, 'clearKarmaUpgradeFromRunnerCardSlot2', 'clear karma upgrade from slot 2', {StickerBS})
+	addScriptingFunction(2, 2, 'oneModNeg2TileToPlayer', 'take one -2 mod tile', {ModTokensBS, PlayerOwnsBS})
+	addScriptingFunction(2, 2, 'oneExhaustedTileToPlayer', 'take one exhausted tile', {VarTokensBS, PlayerOwnsBS})
 
-		-- pseudo shift key up, scripting button index 8
+	-- pseudo shift key down, scripting button index 3
+	addScriptingFunction(2, 3, 'clearKarmaUpgradeFromRunnerCardSlot3', 'clear karma upgrade from slot 3', {StickerBS})
+	addScriptingFunction(2, 3, 'oneModNeg3TileToPlayer', 'take one -3 mod tile', {ModTokensBS, PlayerOwnsBS})
+	addScriptingFunction(2, 3, 'oneDamageTileToPlayer', 'take one damage tile', {VarTokensBS, PlayerOwnsBS})
 
-        -- pseudo shift key down, scripting button index 1
-		addScriptingFunction(2, 1, 'clearKarmaUpgradeFromRunnerCardSlot1', 'clear karma upgrade from slot 1', {StickerBS})
-        addScriptingFunction(2, 1, 'oneModNeg1TileToPlayer', 'take one -1 mod tile', {ModTokensBS, PlayerOwnsBS})
-		addScriptingFunction(2, 1, 'oneGenericSquareTileToPlayer', 'take one generic square tile', {VarTokensBS, PlayerOwnsBS})
+	-- pseudo shift key down, scripting button index 4
+	addScriptingFunction(2, 4, 'clearKarmaUpgradeFromRunnerCardSlot4', 'clear karma upgrade from slot 4', {StickerBS})
+	addScriptingFunction(2, 4, 'disposeOfAllTilesInZone', 'remove all tokens from zone', {AnyTokensBS, PlayerOwnsBS})
+	addScriptingFunction(2, 4, 'toggleBlackMarketDrawnTile', 'toggle optional drawn tile', {OptionalBlackMarketDrawnBS})
+	
+	-- pseudo shift key down, scripting button index 5
+	addScriptingFunction(2, 5, 'changePlayerSeat', 'change player seat', {PlayerHandBS})
+	-- {
+		-- callSign = 'cameraChange', description = 'change camera preset view', prerequisites = {}
+	-- },
 
-		-- pseudo shift key down, scripting button index 2
-		addScriptingFunction(2, 2, 'clearKarmaUpgradeFromRunnerCardSlot2', 'clear karma upgrade from slot 2', {StickerBS})
-        addScriptingFunction(2, 2, 'oneModNeg2TileToPlayer', 'take one -2 mod tile', {ModTokensBS, PlayerOwnsBS})
-		addScriptingFunction(2, 2, 'oneExhaustedTileToPlayer', 'take one exhausted tile', {VarTokensBS, PlayerOwnsBS})
+	-- pseudo shift key down, scripting button index 6
 
-		-- pseudo shift key down, scripting button index 3
-		addScriptingFunction(2, 3, 'clearKarmaUpgradeFromRunnerCardSlot3', 'clear karma upgrade from slot 3', {StickerBS})
-        addScriptingFunction(2, 3, 'oneModNeg3TileToPlayer', 'take one -3 mod tile', {ModTokensBS, PlayerOwnsBS})
-		addScriptingFunction(2, 3, 'oneDamageTileToPlayer', 'take one damage tile', {VarTokensBS, PlayerOwnsBS})
+	-- pseudo shift key down, scripting button index 7
 
-		-- pseudo shift key down, scripting button index 4
-        addScriptingFunction(2, 4, 'clearKarmaUpgradeFromRunnerCardSlot4', 'clear karma upgrade from slot 4', {StickerBS})
-        addScriptingFunction(2, 4, 'disposeOfAllTilesInZone', 'remove all tokens from zone', {AnyTokensBS, PlayerOwnsBS})
-        addScriptingFunction(2, 4, 'toggleBlackMarketDrawnTile', 'toggle optional drawn tile', {OptionalBlackMarketDrawnBS})
-        
-		-- pseudo shift key down, scripting button index 5
-        addScriptingFunction(2, 5, 'changePlayerSeat', 'change player seat', {PlayerHandBS})
-        -- {
-            -- callSign = 'cameraChange', description = 'change camera preset view', prerequisites = {}
-        -- },
-
-		-- pseudo shift key down, scripting button index 6
-
-		-- pseudo shift key down, scripting button index 7
-
-		-- pseudo shift key down, scripting button index 8
+	-- pseudo shift key down, scripting button index 8
 end
 
 

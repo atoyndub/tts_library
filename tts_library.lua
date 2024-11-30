@@ -1254,7 +1254,7 @@ function userInitScriptingFunctions()
 	-- pseudo shift key up, scripting button index 1
 	-- example to assign the doStuffFunc() to scripting key one (no pseudoshift) when user hovers over a card within a 'boardHex' boardspace:
 		-- addScriptingFunction(1, 1, 'doStuffFunc', 'does stuff', {Tile, BoardHexBS})
-
+		
 	-- pseudo shift key up, scripting button index 2
 
 	-- pseudo shift key up, scripting button index 3
